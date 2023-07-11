@@ -109,12 +109,6 @@ function coordClick(event) {
   console.log("Relative Coordinates (x%, y%):", xPercent.toFixed(2), yPercent.toFixed(2));
 }
 
-// Add a click event listener to the element
-var img_element2 = document.getElementById("home_profile_image");
-img_element2.addEventListener("load", function() {
-img_element2.addEventListener("click", coordClick);
-});
-
 ////////////////////////////////////////////////
 
 /*
