@@ -112,6 +112,71 @@ function coordClick(event) {
 ////////////////////////////////////////////////
 
 /*
+
+The generateGridCoordinates function generates coordinates for a grid based on the specified parameters, including rows, columns, skew angles, rotation, starting point, and point spacing.
+Features
+
+    Create a grid of coordinates based on the number of rows and columns.
+    Apply skew transformations to the grid based on the specified skew angles.
+    Apply rotation transformation to the grid based on the specified rotation angle.
+    Control the starting point of the grid within the coordinate system.
+    Adjust the spacing between points in the grid.
+    Return an array of coordinates representing the grid.
+
+Usage
+const coordinates = generateGridCoordinates(
+  rows,
+  columns,
+  skewAngleX,
+  skewAngleY,
+  rotation,
+  startX,
+  startY,
+  pointSpacing
+);
+
+Replace the parameters with your desired values to generate the grid coordinates based on your specific requirements.
+
+Please note that this function operates in the mathematical coordinate system, where the positive x-axis points to the right, and the positive y-axis points downward.
+
+*/
+
+function generateGridCoordinates(rows, columns, skewAngleX, skewAngleY, rotation, startX, startY, pointSpacing) {
+  // Convert skew angles from degrees to radians
+  const skewX = Math.tan((skewAngleX * Math.PI) / 180);
+  const skewY = Math.tan((skewAngleY * Math.PI) / 180);
+
+  const coordinates = [];
+
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < columns; col++) {
+      // Calculate x, y coordinates for each grid point relative to the starting point
+      let x = startX + col * pointSpacing;
+      let y = startY + row * pointSpacing;
+
+      // Apply skew transformations relative to the starting point
+      x += (y - startY) * skewX;
+      y += (x - startX) * skewY;
+
+      // Apply rotation transformation relative to the starting point
+      const angleRad = (rotation * Math.PI) / 180;
+      const cosAngle = Math.cos(angleRad);
+      const sinAngle = Math.sin(angleRad);
+      const rotatedX = startX + (x - startX) * cosAngle - (y - startY) * sinAngle;
+      const rotatedY = startY + (x - startX) * sinAngle + (y - startY) * cosAngle;
+      x = rotatedX;
+      y = rotatedY;
+
+      coordinates.push([x, y]);
+    }
+  }
+
+  return coordinates;
+}
+
+///////////////////////////////////////////////
+
+/*
 ## createFadingSpanOverElement
 
 Creates a fading span element and overlays it on a given element. The fading span fades in and out at specified intervals.
