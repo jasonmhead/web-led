@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>web-led example</title>
+</head>
+
+<body>
+
+    <img id="example_image" src="img/example.jpg">
+
+    <script>
+        
+        const img_element = document.getElementById("example_image");
+        img_element.addEventListener("load", function () {
+
+            // Add a click event listener to the element
+            // click on the image to get starting coords
+            var img_element2 = document.getElementById("example_image");
+            img_element2.addEventListener("load", function () {
+                img_element2.addEventListener("click", coordClick);
+            });
+
+            // leds
+            // createFadingSpanOverElement(elementId, fadeSpeed, elem_width, elem_height, color, borderRadius, skew, pause, randomPause, positionX, positionY)
+            createFadingSpanOverElement(img_element, 10, 8, 8, "#76a8ff", 5, "skew(-5deg, -5deg)", 1.5, true, 416, 195); // blue
+
+            createFadingSpanOverElement(img_element, 10, 8, 8, "#ffbaba", 5, "skew(-5deg, -5deg)", 1.5, true, 437, 205); //red
+
+            createFadingSpanOverElement(img_element, 10, 8, 8, "yellow", 5, "skew(-5deg, -5deg)", 1.5, true, 449, 183); //red
+
+            createFadingSpanOverElement(img_element, 10, 8, 8, "#b9ff89", 5, "skew(-5deg, -5deg)", 1.5, true, 471, 175); // green
+
+            createFadingSpanOverElement(img_element, 10, 8, 8, "#b9ff89", 5, "skew(-5deg, -5deg)", 1.5, true, 495, 183); // green bottom
+
+            const rows = 5;
+            const columns = 10;
+            const skewX = -25;
+            const skewY = 0;
+            const rotation = -25;
+            const startX = 425;
+            const startY = 85;
+            const pointSpacing = 6;
+
+            const gridCoordinates = generateGridCoordinates(rows, columns, skewX, skewY, rotation, startX, startY, pointSpacing);
+
+            for (let i = 0; i < gridCoordinates.length; i++) {
+                const [x, y] = gridCoordinates[i];
+                //console.log(`Point ${i + 1}: x = ${x}, y = ${y}`);
+                var rand_color = getRandomPastelColor()
+                createFadingSpanOverElement(img_element, 10, 3, 3, rand_color, 5, "skew(0deg, 0deg)", 1.5, true, x, y); // green
+            }
+        });
+
+    </script>
+</body>
+
+</html>
