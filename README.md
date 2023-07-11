@@ -3,7 +3,7 @@ A Javascript implementation of blinking leds for a webpage
 
 This code creates a blinking led effect laid over an web element by element id.
 
-- Do Shift-F5 if the demo does not load properly
+- Do Shift - Browser-Refresh-Button if the demo does not load properly
 
 Features include:
 
