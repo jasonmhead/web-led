@@ -17,6 +17,7 @@ Features include:
 Developed on Firefox, and offset for Chrome in code (get the positions from Firefox using the coordClick function)
 
 Demo of leds over a still image
+
 ![demo](https://github.com/jasonmhead/web-led/assets/6140151/3c61d121-f2c4-4a87-9ff3-15c6ae923bc5)
 
 Utility functions included:
