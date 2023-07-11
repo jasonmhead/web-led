@@ -14,7 +14,7 @@ const pastelColor = getRandomPastelColor();
 The getRandomPastelColor function does not require any parameters. Simply call the function to generate a random pastel color in hexadecimal notation.
 
 Please note that the generated pastel color will be in a lighter shade range due to the RGB values being limited to a specific range for pastel colors.
-/*
+*/
 
 function getRandomPastelColor() {
   // Generate random RGB values within the pastel color range (lighter shades)
