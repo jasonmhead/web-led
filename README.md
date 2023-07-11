@@ -3,6 +3,7 @@ A Javascript implementation of blinking leds for a webpage
 
 This code creates a blinking led effect laid over an web element by element id.
 Features include:
+
     - Create a fading span element and overlay it on a target element.
     - Control the speed of the fade animation.
     - Set the width and height of the fading span element.
